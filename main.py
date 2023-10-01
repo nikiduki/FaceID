@@ -6,10 +6,6 @@ from config import bot_token_
 from sql import sql_insert, get_base
 import os
 
-# C:/Users/d5u5d/github/facedars\python-facedars\WIN_20221114_07_19_53_Pro.jpg
-# C:\Users\d5u5d\github\facedars\python-facedars\WIN_20221114_17_12_02_Pro.jpg
-
-
 def main():
     class User:
         def __init__(self, name=None):
@@ -19,7 +15,6 @@ def main():
     user = User()
     @bot.message_handler(commands=['start'])
     def welcome(message):
-        # keyboard
         markup = telebot.types.InlineKeyboardMarkup(row_width=2)
         item1 = telebot.types.InlineKeyboardButton("Войти", callback_data='login')
         item2 = telebot.types.InlineKeyboardButton("Регистрация", callback_data='register')
@@ -114,23 +109,6 @@ def main():
                 markup.add(item1, item2)
                 bot.send_message(message.chat.id,
                                  "Некорректный ввод", reply_markup=markup)
-
-    # @bot.message_handler(content_types=['photo'])
-    # def receve(message):
-    #     if user.name is not None:
-    #         file_id = message.photo.file_id
-    #         file_info = bot.get_file(file_id)
-    #         filename, file_extension = os.path.splitext(file_info.file_path)
-    #         downloaded_file_photo = bot.download_file(file_info.file_path)
-    #         src = r'C:\Users\d5u5d\github\facedars\python-facedars\demo\tmp'
-    #         with open(src, 'wb') as new_file:
-    #             new_file.write(downloaded_file_photo)
-    #         photos = face_detection_video.face_detect(user.name, src)
-    #         ex = sql_insert(user.name, photos)
-    #         if ex:
-    #             bot.send_message(message.chat.id, "Registration unsuccessful")
-    #         else:
-    #             bot.send_message(message.chat.id, "Registration successful")
 
     def receve_login(message):
         user.name = None
