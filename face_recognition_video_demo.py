@@ -8,9 +8,7 @@ import imutils
 import numpy as np
 
 
-# Создание сети нахождения лиц
 detector = MTCNN()
-# Загрузка модели сети определения лиц
 embedder = keras.models.load_model('model/keras/facenet_keras.h5', compile=False)
 
 
@@ -71,8 +69,6 @@ def make_base(dirs):
 
 
 def face_recognise(base):
-    # Загрузка видео
-    capture = cv2.VideoCapture(r'C:\Users\d5u5d\github\facedars\python-facedars\demo\detection_video\putin.mp4')
 
     frame_id = 0  # Инициализация счётчика кадров
     face_n = 0  # Инициализация счётчика лиц
@@ -224,16 +220,6 @@ def face_recognise(base):
 
                     else:
 
-                        # Рисует красный квадрат на картинке по координатам
-                        # cv2.rectangle(
-                        #     image_detected,
-                        #     (x1, y1),
-                        #     (x2, y2),
-                        #     (0, 0, 255, 1),
-                        #     1
-                        # )
-
-                        # Информируем консоль
                         print('\033[91mFalse\033[0m')
 
             # Сохраняем кадр с видео
