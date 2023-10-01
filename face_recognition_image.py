@@ -186,17 +186,6 @@ def face_recognise(frame, base):
                           ' (Желательно 1 сек).\033'
 
             else:
-
-                # Рисует красный квадрат на картинке по координатам
-                # cv2.rectangle(
-                #     image_detected,
-                #     (x1, y1),
-                #     (x2, y2),
-                #     (0, 0, 255, 1),
-                #     1
-                # )
-
-                # Информируем консоль
                 mes = '\033Я не нашел лица :c\033'
 
     # Сохраняем кадр с видео
@@ -205,8 +194,7 @@ def face_recognise(frame, base):
 
 
 def main():
-    image = cv2.imread(r"C:\Users\d5u5d\github\facedars\python-facedars\WIN_20221114_00_49_55_Pro.jpg")
-    face_recognise(image, make_base(['nikita']))
+    face_recognise(image, make_base(['test']))
 
 
 if __name__ == "__main__":
